@@ -80,7 +80,7 @@ function rovarspraket(phrase){
     for (var i = 0; i < phrase.length; i++){
       var letter = phrase.charAt(i);
 
-      if (isVowel(letter)) {
+      if (isVowel(letter)|| (letter === " ")) {
         spraketed += phrase.charAt(i);
       }else {
         spraketed += (letter + "o" + letter);
@@ -89,7 +89,7 @@ function rovarspraket(phrase){
     }
   return spraketed;
 }
-console.assert(rovarspraket("i like cheese"));
+console.assert(rovarspraket("I like cheese"));
 
 
 // ---------------------
@@ -205,14 +205,29 @@ function charFreq(string){
     "use strict";
 
   var freqList = {
-        a:
-        b:
-        c:
-        d:
+        a: 0,
+        b: 0,
+        c: 0,
+        d: 0
   };
 
+  for (var i = 0; i < string.length; i++) {
 
-
-
+    if (string.charAt(i) === 'a') {
+      freqList.a += 1;
+    }
+    if (string.charAt(i) === 'b') {
+      freqList.b += 1;
+    }
+    if (string.charAt(i) === 'c') {
+      freqList.c += 1;
+    }
+    if (string.charAt(i) === 'd') {
+      freqList.d += 1;
+    }
+  }
+return freqList;
 
 }
+
+console.assert(charFreq("abbabcbdbabdbdbabababcbcbab"));
