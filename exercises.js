@@ -152,8 +152,8 @@ function findLongestWord(words){
 
     var wordLengths = [];
 
-  for (var i = 0; i < wordArray.length; i++) {
-      wordLengths.push(wordArray[i].length);
+  for (var i = 0; i < words.length; i++) {
+      wordLengths.push(words[i].length);
 
   }
 
@@ -174,6 +174,7 @@ return longestWord;
 
 }
 
+// console.log(findLongestWord(wordArray));
 console.assert(findLongestWord(wordArray));
 
 
