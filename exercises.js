@@ -145,37 +145,25 @@ console.assert(reverse("bottle neck"));
 // ---------------------
 
 var wordArray = ["red", "accord", "trashcan", "doorsteps"];
-var longestWord;
 
 function findLongestWord(words){
     "use strict";
 
-    var wordLengths = [];
-
   for (var i = 0; i < words.length; i++) {
-      wordLengths.push(words[i].length);
+      // wordLengths.push(words[i].length);
+      var longestWordLength = 0;
+      if(words[i].length > longestWordLength){
+      longestWordLength = words[i].length;
+    }
 
   }
 
-  if (wordLengths[0] > (wordLengths[1] && wordLengths[2] && wordLengths[3])) {
-    longestWord = wordLengths[0];
-  }
-  if (wordLengths[1] > (wordLengths[0] && wordLengths[2] && wordLengths[3])) {
-    longestWord = wordLengths[1];
-  }
-  if (wordLengths[2] > (wordLengths[1] && wordLengths[0] && wordLengths[3])) {
-    longestWord = wordLengths[2];
-  }
-  if (wordLengths[3] > (wordLengths[1] && wordLengths[2] && wordLengths[0])) {
-    longestWord = wordLengths[3];
-  }
-
-return longestWord;
+return longestWordLength;
 
 }
 
 // console.log(findLongestWord(wordArray));
-console.assert(findLongestWord(wordArray));
+console.assert(findLongestWord(wordArray)==9);
 
 
 // ---------------------
@@ -204,31 +192,20 @@ console.assert(filterLongWords(newWords, 5));
 
 function charFreq(string){
     "use strict";
-
-  var freqList = {
-        a: 0,
-        b: 0,
-        c: 0,
-        d: 0
-  };
-
+  var freqList = {};
   for (var i = 0; i < string.length; i++) {
 
-    if (string.charAt(i) === 'a') {
-      freqList.a += 1;
+    if (string.charAt(i) in freqList) {
+      freqList[string.charAt(i)] += 1;
     }
-    if (string.charAt(i) === 'b') {
-      freqList.b += 1;
-    }
-    if (string.charAt(i) === 'c') {
-      freqList.c += 1;
-    }
-    if (string.charAt(i) === 'd') {
-      freqList.d += 1;
+    else {
+      freqList[string.charAt(i)] = 1;
     }
   }
-return freqList;
 
+return freqList;
+console.log(freqList);
 }
 
-console.assert(charFreq("abbabcbdbabdbdbabababcbcbab"));
+console.log(charFreq("abbabcbdbabdbdbabababcbcbab"));
+// {a: 7, b: 14, c: 3, d: 3}
